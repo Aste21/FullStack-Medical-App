@@ -1,0 +1,13 @@
+<div *ngIf="visitList.length > 0; else noVisits">
+  <h2>Your Visits</h2>
+  <ul>
+    <li *ngFor="let visit of visitList">
+      <p>Date: {{ visit.date }}</p>
+      <p>Doctor: {{ visit.doctor.firstname }} {{ visit.doctor.lastname }} ({{ visit.doctor.profession }})</p>
+      <p *ngIf="visit.prescription">Prescription: {{ visit.prescription }}</p>
+    </li>
+  </ul>
+</div>
+<ng-template #noVisits>
+  <p>You have no visits scheduled.</p>
+</ng-template>

@@ -1,0 +1,132 @@
+/* Global styles */
+body {
+  background-color: #ffffff; /* Light blue background */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page header styles */
+.page-header {
+  /* background-color: #ffffff; /* White background for the header */
+  background: linear-gradient(0deg, #9eebf5 0%, #ffffff 100%);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #333;
+}
+
+.navLinks {
+  margin-top: 10px;
+}
+
+.navLinks a {
+  margin-right: 10px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.btn {
+  padding: 5px 10px; /* Smaller padding */
+  font-size: 14px; /* Smaller font size */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #3fbbb1;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1b736b;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Content styles */
+#content {
+  padding: 20px 0;
+}
+
+/* Horizontal line styles */
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Button group styles */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Input box styles */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom: 15px; /* Add margin to the bottom of each input box */
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}

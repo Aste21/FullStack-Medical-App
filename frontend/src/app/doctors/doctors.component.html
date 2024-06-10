@@ -1,0 +1,39 @@
+<h2>Doctors</h2>
+<div>
+  <label>Doctor firstname:
+    <input #doctorFirstName [(ngModel)]="doctor.firstname" required />
+  </label>
+  <br>
+  <label>Doctor lastname:
+    <input #doctorLastName [(ngModel)]="doctor.lastname" required />
+  </label>
+  <br>
+  <label>Doctor profession:
+    <input #doctorProfession [(ngModel)]="doctor.profession" required />
+  </label>
+  <br>
+  <button (click)="add(doctorFirstName.value, doctorLastName.value, doctorProfession.value);
+                  doctorFirstName.value=''; doctorLastName.value=''; doctorProfession.value=''"
+          [disabled]="!isFormValid()">
+    Add
+  </button>
+</div>
+<ul>
+  <li *ngFor="let doctor of doctorList">
+    <span class="badge">{{doctor.id}}:</span> {{ doctor.firstname }} {{ doctor.lastname }} - {{ doctor.profession }}
+    <button title="delete" (click)="delete(doctor)" [disabled]="doctorVisitsMap.get(doctor.id ?? -1)">Delete</button>
+    <button title="update" (click)="update(doctorFirstName.value, doctorLastName.value, doctorProfession.value, doctor);
+                            doctorFirstName.value=''; doctorLastName.value=''; doctorProfession.value=''"[disabled]="!isFormValid()">
+      Update
+    </button>
+  </li>
+</ul>
+<button title="delete all" (click)="deleteAll()">Delete All</button>
+
+<h2>Patients</h2>
+<ul>
+  <li *ngFor="let user of users">
+    <span class="badge">{{ user.id }}:</span> {{ user.name }} {{ user.surname }} - {{ user.email }}
+    <button (click)="deleteUser(user.id)" [disabled]="userVisitsMap.get(user.id)">Delete</button>
+  </li>
+</ul>

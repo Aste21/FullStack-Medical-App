@@ -1,0 +1,18 @@
+<div class="page-header">
+  <div class="container">
+    <h1>Cool Medical Site! :DD</h1>
+    <div class="navLinks">
+      <a [routerLink]="['/home']" class="btn btn-primary">Home</a>
+      <a *ngIf="authority === 'user'" [routerLink]="['/patient-visits']" class="btn btn-primary">Your Visits</a>
+      <a *ngIf="authority === 'admin'" [routerLink]="['/doctors']" class="btn btn-primary">Doctors and Patients</a>
+      <a *ngIf="authority === 'admin'" [routerLink]="['/visits']" class="btn btn-primary">Visits</a>
+      <a *ngIf="!authority" [routerLink]="['/auth/login']" class="btn btn-primary">Login</a>
+    </div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

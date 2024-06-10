@@ -1,0 +1,34 @@
+<h2>Visits</h2>
+<div>
+  <label>Visit date:
+    <input #visitDate type="date" [(ngModel)]="visit.date" required />
+  </label>
+  <br>
+  <label>Doctor:
+    <select #visitDoctor [(ngModel)]="visit.doctorId" (ngModelChange)="visit.doctorId = +$event" required>
+      <option *ngFor="let doctor of doctorList" [value]="doctor.id">{{ doctor.firstname }} {{ doctor.lastname }}</option>
+    </select>
+  </label>
+  <br>
+  <label>Patient:
+    <select #visitPatient [(ngModel)]="visit.userId" (ngModelChange)="visit.userId = +$event" required>
+      <option *ngFor="let user of users" [value]="user.id">{{ user.name }} {{ user.surname }}</option>
+    </select>
+  </label>
+  <br>
+  <button (click)="add(visitDate.value, visitDoctor.value, visitPatient.value)" [disabled]="!isFormValid()">
+    Add
+  </button>
+</div>
+<ul>
+  <li *ngFor="let visit of visitList">
+    <span class="badge">{{visit.id}}:</span> {{ visit.date }} - Doctor: {{ visit.doctor.firstname }} {{ visit.doctor.lastname }} - Patient: {{ visit.user.name }} {{ visit.user.surname }}
+    <span *ngIf="visit.prescription"> - Prescription: {{ visit.prescription }}</span>
+    <br>
+    <input type="text" placeholder="Update prescription" (input)="onPrescriptionChange(visit.id!, $any($event.target).value)"/>
+    <button title="delete" (click)="delete(visit)">Delete</button>
+    <button title="update" (click)="update(visit.date, visit.doctor.id?.toString() || '', visit.user.id.toString() || '', visit)">
+      Update
+    </button>
+  </li>
+</ul>

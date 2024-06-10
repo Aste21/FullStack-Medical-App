@@ -1,0 +1,8 @@
+<p>Hi welcome to our very c00l m3d1cal s1t3!</p>
+<div *ngIf="info.token != '{}'; else loggedOut">
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
